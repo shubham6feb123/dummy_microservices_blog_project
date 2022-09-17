@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: posts
+  name: post-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: posts
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: posts
+    spec:
+      containers:
+        - image: shubham/posts:0.0.5
+          name: posts
+          imagePullPolicy: Never
+          resources: {}
+          ports:
+            - containerPort: 4000
+status: {}
